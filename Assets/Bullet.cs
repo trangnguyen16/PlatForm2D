@@ -10,7 +10,11 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
+<<<<<<< HEAD
         //nghia la chi 
+=======
+        //sdjsdjasdas
+>>>>>>> dev
         rb.velocity = transform.right * speed;
         // skdasdkasdasd
     }
