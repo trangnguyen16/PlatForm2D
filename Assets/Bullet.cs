@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        //nghia la chi bay ve ben phai?
+        //nghia la chi 
         rb.velocity = transform.right * speed;
     }
 
