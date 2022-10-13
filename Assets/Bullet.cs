@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     {
         //nghia la chi 
         rb.velocity = transform.right * speed;
+        // skdasdkasdasd
     }
 
 }
