@@ -35,16 +35,17 @@ public class Manager : MonoBehaviour
     }
     public void Pause()
     {
-
+        //= 0 not run
         Time.timeScale = 0;
     }
     public void Continue()
     {
+        //run
         Time.timeScale = 1;
     }
     public void ComeBack()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
 

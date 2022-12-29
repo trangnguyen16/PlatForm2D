@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public GameObject bullet;
     public float nextAttackTime;
     public float attackSpeed = 2f;
+    public GameObject point;
 
     public void Die()
     {
@@ -20,7 +21,7 @@ public class Enemy : MonoBehaviour
         Die();
         audioDie.Play();
 
-        Instantiate(fx, this.transform.position, Quaternion.identity);
+        Instantiate(fx, this.transform.position, transform.rotation);
 
     }
     public void Update()
@@ -32,7 +33,7 @@ public class Enemy : MonoBehaviour
             {
                 Debug.Log(Time.time);
                 // co the dieu chinh vt o day dc hay ko?
-                Instantiate(bullet, this.transform.position, Quaternion.identity);
+                Instantiate(bullet, point.transform.position, point.transform.rotation);
                 //den 1 khoang thoi gian nao se sinh ra bullet moi
                 nextAttackTime = Time.time + 1f / attackSpeed;
 

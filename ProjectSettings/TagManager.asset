@@ -15,6 +15,7 @@ TagManager:
   - ground
   - sky
   - boxSpace
+  - point
   layers:
   - Default
   - TransparentFX

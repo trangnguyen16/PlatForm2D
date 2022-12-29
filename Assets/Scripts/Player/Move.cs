@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.CrossPlatformInput;
+
 
 public class Move : MonoBehaviour
 {
     #region //variable
     [Header("Variable")]
-
+    public bool input;
     public LayerMask ground;
     public BoxCollider2D boxCollider;
     public Rigidbody2D rb;
@@ -20,11 +22,13 @@ public class Move : MonoBehaviour
     [Header("Audio")]
 
     public AudioSource audioJump;
+    public AudioSource audioCatCoin;
 
     [Header("GameObject")]
 
     public GameObject fx;
     public GameObject bullet;
+    public Joystick joystick;
     
 
     [Header("Speed")]
@@ -36,11 +40,15 @@ public class Move : MonoBehaviour
 
     public float attackSpeed;
     public float nextAttackTime;
-   
+    private bool m_FacingRight;
+
 
     #endregion // variable
 
-
+    public void Start()
+    {
+        GetComponent<AudioSource>().Play();
+    }
     void Update()
     {
         //new
@@ -53,35 +61,42 @@ public class Move : MonoBehaviour
         anm.SetInteger("state", (int)state);
     }
 
+    private void Flip()
+    {
+        // Switch the way the player is labelled as facing.
+        m_FacingRight = !m_FacingRight;
+
+        transform.Rotate(0f, 180f, 0f);
+    }
+
     #region // movement
     public void Movement()
     {
-        float hDirection = Input.GetAxis("Horizontal");
-
-
-        if (hDirection < 0)
+        float hDirection = joystick.Horizontal*speed;
+        if (hDirection < 0 || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             transform.localScale = new Vector2(-1, 1);
             rb.velocity = new Vector2(-speed, rb.velocity.y);
         }
-        else if (hDirection > 0)
+        else if (hDirection > 0 || Input.GetKeyDown(KeyCode.RightArrow))
         {
             transform.localScale = new Vector2(1, 1);
             rb.velocity = new Vector2(speed, rb.velocity.y);
         }
+   
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
         }
-        if (Time.time >= nextAttackTime)
-        {
-           if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                    Instantiate(bullet, this.transform.position, Quaternion.identity);
-               nextAttackTime = Time.time + 1f / attackSpeed;
+        //if (Time.time >= nextAttackTime)
+        //{
+          // if (Input.GetKeyDown(KeyCode.Mouse0))
+            //{
+                //    Instantiate(bullet, this.transform.position, Quaternion.identity);
+              // nextAttackTime = Time.time + 1f / attackSpeed;
                 
-            }
-        }
+          //  }
+        //}
         
         if (Input.GetMouseButton(1))
         {
@@ -143,6 +158,10 @@ public class Move : MonoBehaviour
     #region //physic
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Thorns"))
+        {
+            SceneManager.LoadScene(1);
+        }
         Buff(other);
         LoadScence(other);
         
@@ -162,7 +181,7 @@ public class Move : MonoBehaviour
         Manager m = new Manager();
         if (other.tag == "Thorns")
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
         if (other.tag == "Cherry")
         {
@@ -171,7 +190,7 @@ public class Move : MonoBehaviour
             Manager.instance.textCherry.text = Manager.instance.cherryScore.ToString();
             Destroy(other.gameObject);
             Instantiate(fx, other.gameObject.transform.position, Quaternion.identity);
-
+            audioCatCoin.Play();
         }
         if (other.tag == "Gem")
         {
@@ -182,6 +201,7 @@ public class Move : MonoBehaviour
             Instantiate(fx, other.gameObject.transform.position, Quaternion.identity);
             colorPlayer.color = Color.red;
             Invoke("ResetPower", 10f);
+            audioCatCoin.Play();
         }
     }
     public void LoadScence(Collider2D other)
@@ -192,11 +212,10 @@ public class Move : MonoBehaviour
         }
         if (other.tag == "Die")
         {
-            //SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
             //boxCollider.enabled = false;
             //rb.velocity = Vector2.zero;
             //this. = false;
-//
         }
     }
     public void OnCollisionEnter2D(Collision2D other)
@@ -223,10 +242,7 @@ public class Move : MonoBehaviour
                 {
                     rb.velocity = new Vector2(13, rb.velocity.y);
                 }
-
             }
-
-
         }
         if (other.gameObject.CompareTag("Thorns"))
         {
@@ -242,13 +258,7 @@ public class Move : MonoBehaviour
                 {
                     rb.velocity = new Vector2(13, rb.velocity.y);
                 }
-
             }
-
-
         }
     }
-
-
-
 }

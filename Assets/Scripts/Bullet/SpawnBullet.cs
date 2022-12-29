@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnBullet : MonoBehaviour
 {
     
-    public float speed;
+    public float speed = 1f;
     public float attackTime;
     public float nextAttackTime;
 
@@ -28,7 +28,7 @@ public class SpawnBullet : MonoBehaviour
         if (Time.time >= nextAttackTime)
         {
           
-            float randomX = Random.Range(-76,-56);
+            float randomX = Random.Range(-86,120);
             Vector2 whereToSpawn = new Vector2(randomX, transform.position.y) ;
             Instantiate(bullet, whereToSpawn, Quaternion.identity);
             nextAttackTime = Time.time + 1f / attackTime;

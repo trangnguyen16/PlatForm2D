@@ -6,6 +6,7 @@ public class BulletEnemy : MonoBehaviour
 {
     public float speed;
     public Rigidbody2D rb;
+  
 
     private void Update()
     {
