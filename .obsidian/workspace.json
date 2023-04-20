@@ -1,22 +1,18 @@
 {
   "main": {
-    "id": "0383f117053f2815",
+    "id": "7dbb795b939e7812",
     "type": "split",
     "children": [
       {
-        "id": "54a4cf97c7927cff",
+        "id": "8cb1b25e13f771ff",
         "type": "tabs",
         "children": [
           {
-            "id": "3d944a3d3408809c",
+            "id": "ac45f1964cd3345c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -25,15 +21,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "e0e706c0da9d5f37",
+    "id": "8b033996beec1e8b",
     "type": "split",
     "children": [
       {
-        "id": "89c9236992a78ec1",
+        "id": "5cb65a74c80f2204",
         "type": "tabs",
         "children": [
           {
-            "id": "6f182113df64a87a",
+            "id": "4e422978d7812684",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,7 +39,7 @@
             }
           },
           {
-            "id": "5a38a25813b47c87",
+            "id": "ab1346f3de127189",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -58,7 +54,7 @@
             }
           },
           {
-            "id": "d9d5e9f58ad30935",
+            "id": "4338392344059917",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -72,20 +68,19 @@
     "width": 300
   },
   "right": {
-    "id": "a895a1dad8ac1453",
+    "id": "56363f33f7637b33",
     "type": "split",
     "children": [
       {
-        "id": "41f64bd77c5a0849",
+        "id": "6686951034059cb0",
         "type": "tabs",
         "children": [
           {
-            "id": "c7dab0bcf818039e",
+            "id": "8b410a9ea596c1df",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,19 +92,18 @@
             }
           },
           {
-            "id": "22750c09b30b505b",
+            "id": "a58a6070174077bd",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "6ecaf90c72e7b72b",
+            "id": "69dc64bd087cc229",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -120,13 +114,11 @@
             }
           },
           {
-            "id": "6a7e27118b486d14",
+            "id": "a44c67b575b1989e",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "README.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -146,21 +138,6 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3d944a3d3408809c",
-  "lastOpenFiles": [
-    "Marri Fox (game platformer)_.mp4",
-    "Screenshot/Screenshot 2022-12-27 at 19.41.55.png",
-    "Screenshot/Screenshot 2023-04-18 at 08.02.39.png",
-    "README.md",
-    "Screenshot 2022-12-27 at 19.41.55.png.md",
-    "Screenshot",
-    "Screenshot/Screenshot 2022-12-27 at 19.41.55.png",
-    "Screenshot/Screenshot 2022-12-20 at 12.36.28.png",
-    "Screenshot/Screenshot 2022-12-20 at 12.04.43.png",
-    "Screenshot/Screenshot 2022-12-01 at 15.30.34.png",
-    "Screenshot/Screenshot 2022-11-22 at 14.35.45.png",
-    "Screenshot/Screenshot 2022-11-22 at 14.34.26.png",
-    "Screenshot/Screenshot 2022-11-22 at 14.30.22.png",
-    "Screenshot/Screen Recording 2023-02-18 at 23.13.28.mov"
-  ]
+  "active": "ac45f1964cd3345c",
+  "lastOpenFiles": []
 }
